@@ -15,6 +15,10 @@ class Nazione:
     def __hash__(self):
         return hash(self.StateAbb)
 
+    def __repr__(self):
+        return (f"Country(CCode={self.CCode}, StateAbb='{self.StateAbb}', "
+            f"StateNme='{self.StateNme}'")
+
     def __str__(self):
         return f"{self.StateAbb} - {self.StateNme}"
 
