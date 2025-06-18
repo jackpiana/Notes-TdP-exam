@@ -98,16 +98,12 @@ class Country:
         return self.StateNme.lower() < other.StateNme.lower()
 
 """
-Quando usi @dataclass(eq=True, frozen=True), Python genera automaticamente i metodi __eq__ e __hash__ seguendo queste regole:
-
-Attributi usati da __eq__ e `hash:
-Tutti gli attributi definiti nella classe vengono usati per:
-
-__eq__: Confronta tutti i campi per verificare l'uguaglianza
-
-__hash__: Calcola l'hash combinando tutti i campi
+order=True (Ordinamento)
+Cosa fa:
+Genera automaticamente i metodi di confronto (__lt__, __le__, __gt__, __ge__),
+ordinando gli oggetti in base all'ordine di dichiarazione dei campi.
 """
-@dataclass(eq=True, frozen=True)
+@dataclass(order=True, frozen=True)
 class Country:
     CCode: int
     StateAbb: str
