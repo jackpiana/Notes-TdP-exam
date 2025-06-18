@@ -112,3 +112,7 @@ class Country:
     CCode: int
     StateAbb: str
     StateNme: str
+
+"""
+isinstance(oggetto, classe)  # Restituisce True o False
+"""
