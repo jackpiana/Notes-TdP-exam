@@ -31,8 +31,12 @@ class Nazione:
     utilizzato principalmente in:
     Dizionari: Per identificare le chiavi in modo efficiente.
     Set: Per determinare l'unicità degli elementi.
+    
     NB
+    
     __hash__ deve essere basato sugli stessi attributi usati in __eq__.
+    Define __eq__() and __hash__() using the exact set of fields that
+    compose the primary key of the table
     """
 
     """ __repr__
