@@ -61,6 +61,10 @@ class View(ft.UserControl):
         self._page.controls.append(row2)
         self._page.controls.append(self.lv)
 
+        #self.show_loading_bar()
+        #*** funzione lenta***
+        #self.remove_loading_bar():
+
         #AGGIORNARE PAGINA SEMPRE
         self._page.update()
 
@@ -77,7 +81,7 @@ class View(ft.UserControl):
 
     """
     LOADING BAR
-    chiama funzione lunga tra show/remove
+    chiama funzione lunga di cui si desidera mostrare il caricamento tra show/remove
     """
     def show_loading_bar(self):
         # progress bar

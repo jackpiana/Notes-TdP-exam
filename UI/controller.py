@@ -19,7 +19,7 @@ class Controller:
         print(f"testo letto: {self.testo_casellaTesto} - {type(self.testo_casellaTesto)}")
 
     def fill_dropdown(self):
-        lista_opzioni = ["a", (1, 2), "b", 14, 8.24]
+        lista_opzioni = ["a", (1, 2), "b", 14, 8.24, ["carote", "banane", 25]]
         for o in lista_opzioni:
             self._view.dropdown.options.append(ft.dropdown.Option(key= o,
                                                                   text=o,
@@ -35,17 +35,6 @@ class Controller:
         lista_elementi = ["a", (1, 2), "b", 14, 8.24]
         for el in lista_elementi:
             self._view.lv.controls.append(ft.Text(f"{el}"))
-
-
-
-
-
-
-
-
-
-
-
 
 
 
