@@ -1,3 +1,5 @@
+from database.f1_classes import Result, Driver
+
 from database.DB_connect import DBConnect
 
 class DAO():
@@ -28,10 +30,10 @@ class DAO():
     def getter_oggetti():
         """
         usa unpacking di dizionari per creare oggetti di classe avente tutte le righe di data tabella
-        return: lista di oggetti
+        return: mappa key= id, value= oggetto
         """
         conn = DBConnect.get_connection()
-        result = []
+        result = {}
         if conn is None:
             print("Connection failed")
         else:
@@ -41,7 +43,43 @@ class DAO():
                         """
             cursor.execute(query)
             for row in cursor:
-                result.append(Oggetto(**row))  #**row è un operatore di unpacking (espansione) di un dizionario. nb: serve che tutti i nomi degli attributi combacino
+                result[row["id"]] = (Oggetto(**row))  #**row è un operatore di unpacking (espansione) di un dizionario. nb: serve che tutti i nomi degli attributi combacino
+            cursor.close()
+            conn.close()
+        return result
+
+    @staticmethod
+    def getter_drivers():
+        conn = DBConnect.get_connection()
+        result = {}
+        if conn is None:
+            print("Connection failed")
+        else:
+            cursor = conn.cursor(dictionary=True)
+            query = """SELECT *
+                        FROM results
+                        """
+            cursor.execute(query)
+            for row in cursor:
+                result[row["driverId"]] = (Driver(**row))  #**row è un operatore di unpacking (espansione) di un dizionario. nb: serve che tutti i nomi degli attributi combacino
+            cursor.close()
+            conn.close()
+        return result
+
+    @staticmethod
+    def getter_result():
+        conn = DBConnect.get_connection()
+        result = {}
+        if conn is None:
+            print("Connection failed")
+        else:
+            cursor = conn.cursor(dictionary=True)
+            query = """SELECT *
+                        FROM results
+                        """
+            cursor.execute(query)
+            for row in cursor:
+                result[row["resultId"]] = (Result(**row))  #**row è un operatore di unpacking (espansione) di un dizionario. nb: serve che tutti i nomi degli attributi combacino
             cursor.close()
             conn.close()
         return result
@@ -49,7 +87,7 @@ class DAO():
 
 if __name__ == '__main__':
     DAO = DAO()
-    for item in DAO.getter():
+    for item in DAO.getter_result().values():
         print(type(item), item)
 
 
