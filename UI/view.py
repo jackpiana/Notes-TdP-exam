@@ -45,8 +45,14 @@ class View(ft.UserControl):
         #self._page.controls.append(self.bottone)
 
         #dropdown
-        self.dropdown = ft.Dropdown(label="Anno")
+        self.dropdown = ft.Dropdown(label="label")
         self._controller.fill_dropdown()
+        #alternativa dropdown
+        self.dd = ft.Dropdown(label="label")
+        self._controller.fillDD()
+        self.btnRead = ft.ElevatedButton(text="bottone leggi dd",
+                                         on_click= self._controller.readDD)
+
         #self._page.controls.append(self.dropdown)
 
         #listview

@@ -18,6 +18,8 @@ class Controller:
         self.testo_casellaTesto = self._view.casella_testo.value
         print(f"testo letto: {self.testo_casellaTesto} - {type(self.testo_casellaTesto)}")
 
+
+    #DROPDOWN
     def fill_dropdown(self):
         lista_opzioni = ["a", (1, 2), "b", 14, 8.24, ["carote", "banane", 25]]
         for o in lista_opzioni:
@@ -25,10 +27,19 @@ class Controller:
                                                                   text=o,
                                                                   data= o,
                                                                   on_click=self.read_dropdown))
-
     def read_dropdown(self, e):
         self.valore_dd = e.control.data
         print(f"valore letto: {self.valore_dd} - {type(self.valore_dd)}")
+
+    #ALTERNATIVA dropdown
+    def fillDD(self):
+        lista_opzioni = ["a", (1, 2), "b", 14, 8.24, ["carote", "banane", 25]]
+        for o in lista_opzioni:
+            self._view.dd.options.append(ft.dropdown.Option(o))
+
+    def readDD(self, e):
+        print(self._view.dd.value)
+
 
 
     def fill_listView(self):
