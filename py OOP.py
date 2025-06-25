@@ -116,3 +116,7 @@ class Country:
 """
 isinstance(oggetto, classe)  # Restituisce True o False
 """
+print(isinstance(Country(123, 'GRR', 'GRRTTATTA'), Country))
+
+#ordinamento liste: esempio con oggetti di tipo persona
+persone_ordinate = sorted(lista, key=lambda p: p.età)

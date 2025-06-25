@@ -15,9 +15,8 @@ multiDiGraph = nx.MultiDiGraph()
 
 """
 Quando aggiungi archi (edges) a un grafo in NetworkX 
-senza aver prima aggiunto esplicitamente i nodi (nodes) 
-collegati da quegli archi, 
-NetworkX aggiunge automaticamente i nodi mancanti al grafo.
+senza aver prima aggiunto esplicitamente i nodi (nodes) collegati
+da quegli archi, NetworkX aggiunge automaticamente i nodi mancanti al grafo.
 """
 graph.add_node("A")
 graph.add_edge("A", "B")
@@ -26,11 +25,10 @@ graph.add_nodes_from(list_nodes)
 graph.add_edges_from(list_edges)
 elist = [(1, 2, 1), (2, 3, 1), (1, 4, 1), (4, 2, 1),
          ('a', 'b', 5.0), ('b', 'c', 3.0), ('a', 'c', 1.0), ('c', 'd', 7.3)]
-g.add_weighted_edges_from(elist)  #weight deve essere un valore numerico
-                                  # NB print(edge) non p'rinta il valore di weigth
-                                  #but this does
+g.add_weighted_edges_from(elist)
+
 peso = m.grafo[nodo1][nodo2]['weight']
-print(d1, d2, peso)
+print(d1, d2, peso) #per printare il valore di edge
 
 
 #numero nodi e archi
@@ -52,6 +50,7 @@ neighbors = list(self._graph.neighbors(n)) #Restituisce una lista di nodi adiace
 succesori = grafo.successors(nodo_sorgente) # nodi direttamente connessi tramite un arco uscente da un nodo specifico n in un grafo orientato (DiGraph) di NetworkX
 predecessori=  grafo.predecessors(nodo_sorgente) #complementare
 
+list(grafo.edges(nodo, data=True)) #lista di tutti gli archi collegati a un nodo specifico
 list(grafo.out_edges(nodo, data=True)) #tutti gli archi uscenti da un nodo specifico
 list(grafo.in_edges(nodo, data=True) #tutti gli archi entranti in un nodo specifico
 
