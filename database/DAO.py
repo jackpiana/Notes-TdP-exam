@@ -57,7 +57,7 @@ class DAO():
         else:
             cursor = conn.cursor(dictionary=True)
             query = """SELECT *
-                        FROM results
+                        FROM drivers
                         """
             cursor.execute(query)
             for row in cursor:
@@ -87,7 +87,12 @@ class DAO():
 
 if __name__ == '__main__':
     DAO = DAO()
+
     for item in DAO.getter_result().values():
+        print(type(item), item)
+
+
+    for item in DAO.getter_drivers().values():
         print(type(item), item)
 
 
