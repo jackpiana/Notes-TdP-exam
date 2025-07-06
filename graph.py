@@ -1,5 +1,19 @@
 import networkx as nx
 
+#template funzione controller
+def handle_creaGrafo(self, e):
+    self._view.lv_result.controls.clear()
+    self._view.update_page()
+    self.read_casellaTesto_intero()
+
+    self._model.build_graph(self.numCompagnie)
+
+    self._view.lv_result.controls.append(ft.Text(self._model.grafo))
+
+    self._view.update_page()
+
+
+
 """
 NODES can be any hashable object
 
