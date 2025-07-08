@@ -1,19 +1,5 @@
 import networkx as nx
 
-#template funzione controller
-def handle_creaGrafo(self, e):
-    self._view.lv_result.controls.clear()
-    self._view.update_page()
-    self.read_casellaTesto_intero()
-
-    self._model.build_graph(self.numCompagnie)
-
-    self._view.lv_result.controls.append(ft.Text(self._model.grafo))
-
-    self._view.update_page()
-
-
-
 """
 NODES can be any hashable object
 
@@ -37,9 +23,22 @@ graph.add_edge("A", "B")
 
 graph.add_nodes_from(list_nodes)
 graph.add_edges_from(list_edges)
+
+
+# Aggiungi un arco con attributo 'weight'
+G.add_edge(1, 2, weight=4.5)
+G.add_edge(2, 3, weight=2.1)
+
+# Puoi anche usare un dizionario per gli attributi
+G.add_edge(3, 4, **{'weight': 7.2, 'color': 'blue'})
+
 elist = [(1, 2, 1), (2, 3, 1), (1, 4, 1), (4, 2, 1),
          ('a', 'b', 5.0), ('b', 'c', 3.0), ('a', 'c', 1.0), ('c', 'd', 7.3)]
 g.add_weighted_edges_from(elist)
+
+
+G.add_edge(5, 6)  # Arco senza peso iniziale
+G.edges[5, 6]['weight'] = 3.8  # Aggiungi/modifica peso dopo
 
 peso = m.grafo[nodo1][nodo2]['weight']
 print(d1, d2, peso) #per printare il valore di edge
@@ -53,8 +52,6 @@ numero_edges = graph.number_of_edges(), len(graph.edges)
 #GETTER nodi e archi
 G.edges(nodo) #Restituisce tutti gli archi collegati al nodo.
 
-G.nodes() #Restituisce tutti i nodi POTREBBE DARE PROBLEMI
-G.edges() #Restituisce tutti gli archi POTREBBE DARE PROBLEMI
 list(self.grafo.nodes)
 list(self.grafo.edges)
 

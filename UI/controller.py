@@ -50,12 +50,24 @@ class Controller:
 
 
     def read_casellaTesto_intero(self):
-        durata = self._view._txtInDurata.value
+        valore = self._view._txtInDurata.value
         try:
-            durata = int(durata)
-            self.durata = durata*60*1000
-            print(f"durata: {self.durata} {type(durata)}")
+            valore = int(valore)
+            self.valore = valore
+            print(f"durata: {self.valore} {type(valore)}")
             return True
         except ValueError:
             self._view.create_alert("inserire valore valido")
             return False
+
+    # template funzione controller handle creazione grafo
+    def handle_creaGrafo(self, e):
+        self._view.lv_result.controls.clear()
+        self._view.update_page()
+
+        self._model.build_graph()
+
+        self._view.lv_result.controls.append(ft.Text(self._model.grafo))
+
+        self._view.update_page()
+

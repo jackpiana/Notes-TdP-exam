@@ -84,10 +84,9 @@ class View(ft.UserControl):
         dlg.open = True
         self._page.update()
 
-
     """
     LOADING BAR
-    chiama funzione lunga di cui si desidera mostrare il caricamento tra show/remove
+    chiama prima e dopo funzione lunga di cui si desidera mostrare il caricamento
     """
     def show_loading_bar(self):
         # progress bar
@@ -118,3 +117,6 @@ class View(ft.UserControl):
 
     def set_controller(self, controller):
         self._controller = controller
+
+    def update_page(self):
+        self._page.update()
