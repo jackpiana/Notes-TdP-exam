@@ -6,6 +6,14 @@ class Model:
 
     def build_graph(self):
         self.grafo.clear()
+        #NODES
+
+        #EDGES
+
+        print(self.grafo)
+
+
+
 
     """
     RICORSIONE
@@ -27,6 +35,7 @@ class Model:
                 parziale.pop()
 
     def calcola_rimanenti(self, parziale):
+        rimanenti = []
         return rimanenti
 
     def calcolaPunteggio(self, parziale):
@@ -35,6 +44,9 @@ class Model:
     def isAmmissibile(self):
         pass
 
+if __name__ == "__main__":
+    m = Model()
+    m.build_graph()
 
 
 

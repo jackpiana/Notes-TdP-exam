@@ -2,5 +2,5 @@
 user=root
 password=1443Jack
 host=127.0.0.1
-database=formula1
+database=bike_store_full
 raise_on_warnings=True

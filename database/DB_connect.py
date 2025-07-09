@@ -17,13 +17,13 @@ class DBConnect:
         if it does not exist
         :param pool_name: name of the pool
         :param pool_size: number of connections in the pool
-        :return: mysql.connector.connection"""
+        :return: mysql.connector.cnf.connection"""
         if cls._cnxpool is None:
             try:
                 cls._cnxpool = mysql.connector.pooling.MySQLConnectionPool(
                     pool_name=pool_name,
                     pool_size=pool_size,
-                    option_files=f"{pathlib.Path(__file__).resolve().parent}/connector"
+                    option_files=f"{pathlib.Path(__file__).resolve().parent}/connector.cnf"
                 )
                 return cls._cnxpool.get_connection()
             except mysql.connector.Error as err:
